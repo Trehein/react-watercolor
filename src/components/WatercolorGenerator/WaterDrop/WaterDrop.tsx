@@ -35,7 +35,6 @@ export const WaterDrop: React.FC<WaterDropProps> = (props) => {
                     opacity={opacity} 
                 />
             })}
-            {/* <polygon points={pathFinderXY(generateRandomPoints(firstDeform, 15, 8))} fill='blue' opacity={opacity} /> */}
         </>
 
     )

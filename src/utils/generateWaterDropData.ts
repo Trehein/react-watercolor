@@ -18,20 +18,19 @@ export const generateWaterDropData: (generateWaterDropDataParams: GenerateWaterD
     } = generateWaterDropDataParams
 
     const waterDropData: WaterDropProps[] = new Array(numberOfInitialShapeLayers).fill(undefined).map((undefinedSlot: undefined, i: number) => {
-        console.log('testbool', typeof(initPolygonRadius))
         return {
             initPolygonPoints,
             initPolygonRadius: typeof(initPolygonRadius) === 'number' ? initPolygonRadius : initPolygonRadius(i),
-            originX,
-            originY,
+            originX: typeof(originX) === 'number' ? originX : originX(i),
+            originY: typeof(originY) === 'number' ? originY : originY(i),
             colors: [colors[0]],
-            opacity,
+            opacity: typeof(opacity) === 'number' ? opacity : opacity(i),
             numberOfOverlays,
             maxRandomNumberForInitDeform,
             maxNumberOfRecurrsionsForInitDeform,
             maxRandomNumberForOverlayDeform,
             maxNumberOfRecurrsionsForOverlayDeform,
-            initRotationAngle
+            initRotationAngle: typeof(initRotationAngle) === 'number' ? initRotationAngle : initRotationAngle(i)
         }
     })
 

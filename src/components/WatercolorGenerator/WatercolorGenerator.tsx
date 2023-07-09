@@ -5,7 +5,6 @@ import { generateWaterDropData } from '../../utils/generateWaterDropData'
 
 export const WatercolorGenerator: React.FC<GenerateWaterDropDataParams> = (props) => {    
     const {svgHeight, svgWidth} = props
-    console.log(props)
     return (
         <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
             <svg height={svgHeight} width={svgWidth}>
