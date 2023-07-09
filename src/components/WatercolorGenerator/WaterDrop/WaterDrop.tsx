@@ -23,13 +23,13 @@ export const WaterDrop: React.FC<WaterDropProps> = (props) => {
         return {x: point.x, y: point.y}
     })
 
-    const firstDeform = generateRandomPoints(initPoints, maxRandomNumberForInitDeform, maxNumberOfRecurrsionsForInitDeform)
+    const firstDeform = generateRandomPoints(initPoints, maxRandomNumberForInitDeform, maxNumberOfRecurrsionsForInitDeform) // todo - add optional shape points here
 
     return (
         <>
             {emptyArray.map((emptySlot: undefined, i: number) => {
                 return <polygon
-                    key={i } 
+                    key={i} 
                     points={pathFinderXY(generateRandomPoints(firstDeform, maxRandomNumberForOverlayDeform, maxNumberOfRecurrsionsForOverlayDeform))} 
                     fill={colors[0]} 
                     opacity={opacity} 

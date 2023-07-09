@@ -14,13 +14,14 @@ export const generateWaterDropData: (generateWaterDropDataParams: GenerateWaterD
         maxNumberOfRecurrsionsForOverlayDeform, 
         maxRandomNumberForInitDeform, 
         maxRandomNumberForOverlayDeform,
-        initRotationAngle 
+        initRotationAngle,
     } = generateWaterDropDataParams
 
     const waterDropData: WaterDropProps[] = new Array(numberOfInitialShapeLayers).fill(undefined).map((undefinedSlot: undefined, i: number) => {
+        console.log('testbool', typeof(initPolygonRadius))
         return {
             initPolygonPoints,
-            initPolygonRadius: initPolygonRadius * (.5 - .05 * i),
+            initPolygonRadius: typeof(initPolygonRadius) === 'number' ? initPolygonRadius : initPolygonRadius(i),
             originX,
             originY,
             colors: [colors[0]],

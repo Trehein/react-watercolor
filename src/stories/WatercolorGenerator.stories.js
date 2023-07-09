@@ -1,5 +1,5 @@
 import { WatercolorGenerator } from "../components";
-import { blueTriangle, greenLine } from '../examples'
+import { basicTriangleEx, horizontalLineEx, staggeredRadiusEx } from '../examples'
 
 export default {
     title: 'components/WatercolorGenerator',
@@ -11,7 +11,7 @@ export const BasicTriangle = {
         {...args}
     />,
     args: {
-        ...blueTriangle
+        ...basicTriangleEx
     },
     parameters: {  /* ... */ },
   };
@@ -21,7 +21,17 @@ export const HorizontalLine = {
         {...args}
     />,
     args: {
-        ...greenLine
+        ...horizontalLineEx
     },
     parameters: {  /* ... */ },
   };
+
+export const StaggeredRadius = {
+    render: (args) => <WatercolorGenerator
+        {...args}
+    />,
+    args: {
+        ...staggeredRadiusEx
+    },
+    parameters: {  /* ... */ },
+}

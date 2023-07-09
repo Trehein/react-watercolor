@@ -1,3 +1,13 @@
+export type CalcXYCoordsOfCircleWithAngleParams = {
+    angle: number, 
+    radius: number, 
+    originX: number, 
+    originY: number,
+    initRotationAngle?: number
+}
+
+// todo - use type to destructure and set initRotation angle as default value in destructuring
+
 export const calcXYCoordsOfCircleWithAngle = (
     angle: number, 
     radius: number, 
