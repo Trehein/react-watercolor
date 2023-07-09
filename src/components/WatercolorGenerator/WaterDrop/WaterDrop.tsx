@@ -3,10 +3,23 @@ import { WaterDropProps } from '../../../types'
 import { generateCircleCoords, generateRandomPoints, pathFinderXY } from '../../../utils'
 
 export const WaterDrop: React.FC<WaterDropProps> = (props) => {
-    const {colors, maxRandomNumberForInitDeform, maxNumberOfRecurrsionsForInitDeform, maxRandomNumberForOverlayDeform, maxNumberOfRecurrsionsForOverlayDeform, numberOfOverlays, initPolygonRadius, originX, originY, opacity, initPolygonPoints} = props
+    const {
+        colors, 
+        maxRandomNumberForInitDeform, 
+        maxNumberOfRecurrsionsForInitDeform, 
+        maxRandomNumberForOverlayDeform, 
+        maxNumberOfRecurrsionsForOverlayDeform, 
+        numberOfOverlays, 
+        initPolygonRadius, 
+        originX, 
+        originY, 
+        opacity, 
+        initPolygonPoints,
+        initRotationAngle
+    } = props
     const emptyArray: undefined[] = new Array(numberOfOverlays).fill(undefined)
 
-    const initPoints = generateCircleCoords(initPolygonPoints, initPolygonRadius, {originX: originX, originY: originY}).map((point: any) => {
+    const initPoints = generateCircleCoords(initPolygonPoints, initPolygonRadius, {originX: originX, originY: originY}, initRotationAngle).map((point: any) => {
         return {x: point.x, y: point.y}
     })
 

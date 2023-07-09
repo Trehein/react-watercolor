@@ -23,7 +23,9 @@ export const WatercolorGenerator: React.FC<GenerateWaterDropDataParams> = (props
                             maxRandomNumberForInitDeform, 
                             maxNumberOfRecurrsionsForInitDeform, 
                             maxRandomNumberForOverlayDeform, 
-                            maxNumberOfRecurrsionsForOverlayDeform} = waterDrop
+                            maxNumberOfRecurrsionsForOverlayDeform,
+                            initRotationAngle
+                        } = waterDrop
                             
                         return (
                             <WaterDrop 
@@ -39,6 +41,7 @@ export const WatercolorGenerator: React.FC<GenerateWaterDropDataParams> = (props
                                 maxNumberOfRecurrsionsForInitDeform={maxNumberOfRecurrsionsForInitDeform} 
                                 maxRandomNumberForOverlayDeform={maxRandomNumberForOverlayDeform} 
                                 maxNumberOfRecurrsionsForOverlayDeform={maxNumberOfRecurrsionsForOverlayDeform}                    
+                                initRotationAngle={initRotationAngle}
                             />
                         )
                     })

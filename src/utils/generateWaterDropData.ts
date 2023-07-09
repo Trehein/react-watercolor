@@ -13,7 +13,8 @@ export const generateWaterDropData: (generateWaterDropDataParams: GenerateWaterD
         maxNumberOfRecurrsionsForInitDeform, 
         maxNumberOfRecurrsionsForOverlayDeform, 
         maxRandomNumberForInitDeform, 
-        maxRandomNumberForOverlayDeform 
+        maxRandomNumberForOverlayDeform,
+        initRotationAngle 
     } = generateWaterDropDataParams
 
     const waterDropData: WaterDropProps[] = new Array(numberOfInitialShapeLayers).fill(undefined).map((undefinedSlot: undefined, i: number) => {
@@ -28,7 +29,8 @@ export const generateWaterDropData: (generateWaterDropDataParams: GenerateWaterD
             maxRandomNumberForInitDeform,
             maxNumberOfRecurrsionsForInitDeform,
             maxRandomNumberForOverlayDeform,
-            maxNumberOfRecurrsionsForOverlayDeform
+            maxNumberOfRecurrsionsForOverlayDeform,
+            initRotationAngle
         }
     })
 

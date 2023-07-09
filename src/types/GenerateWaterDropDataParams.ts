@@ -1,5 +1,3 @@
-import { WaterDropProps } from "./WaterDropProps"
-
 export type GenerateWaterDropDataParams = {
     initPolygonPoints: number,
     initPolygonRadius: number,
@@ -15,4 +13,5 @@ export type GenerateWaterDropDataParams = {
     maxNumberOfRecurrsionsForOverlayDeform: number,
     svgHeight: number,
     svgWidth: number,
+    initRotationAngle?: number
 }
