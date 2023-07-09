@@ -1,6 +1,5 @@
 # react-watercolor
 
-<!-- optional function params for more fields -->
 <!-- optional backgroundcolor -->
 <!-- todo - color array with weights -->
 <!-- todo - custom shapes -->

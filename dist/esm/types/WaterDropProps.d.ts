@@ -10,4 +10,5 @@ export type WaterDropProps = {
     maxNumberOfRecurrsionsForInitDeform: number;
     maxRandomNumberForOverlayDeform: number;
     maxNumberOfRecurrsionsForOverlayDeform: number;
+    initRotationAngle?: number;
 };

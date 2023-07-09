@@ -1,16 +1,15 @@
 export type GenerateWaterDropDataParams = {
     initPolygonPoints: number;
-    initPolygonRadius: number;
-    originX: number;
-    originY: number;
+    initPolygonRadius: number | ((index: number) => number);
+    originX: number | ((index: number) => number);
+    originY: number | ((index: number) => number);
     colors: Array<string>;
-    opacity: number;
+    opacity: number | ((index: number) => number);
     numberOfOverlays: number;
     numberOfInitialShapeLayers: number;
     maxRandomNumberForInitDeform: number;
     maxNumberOfRecurrsionsForInitDeform: number;
     maxRandomNumberForOverlayDeform: number;
     maxNumberOfRecurrsionsForOverlayDeform: number;
-    svgHeight: number;
-    svgWidth: number;
+    initRotationAngle?: number | ((index: number) => number);
 };

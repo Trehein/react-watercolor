@@ -30,7 +30,7 @@ export const generateWaterDropData: (generateWaterDropDataParams: GenerateWaterD
             maxNumberOfRecurrsionsForInitDeform,
             maxRandomNumberForOverlayDeform,
             maxNumberOfRecurrsionsForOverlayDeform,
-            initRotationAngle: typeof(initRotationAngle) === 'number' ? initRotationAngle : initRotationAngle(i)
+            initRotationAngle: initRotationAngle ? typeof(initRotationAngle) === 'number' ? initRotationAngle : initRotationAngle(i) : 1
         }
     })
 

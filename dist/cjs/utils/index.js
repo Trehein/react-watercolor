@@ -20,3 +20,4 @@ __exportStar(require("./generateCircleCoords"), exports);
 __exportStar(require("./pathFinderXY"), exports);
 __exportStar(require("./randomGauss"), exports);
 __exportStar(require("./randomIntFromInterval"), exports);
+__exportStar(require("./staggerRadius"), exports);

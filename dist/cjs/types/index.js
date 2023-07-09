@@ -16,5 +16,5 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./GenerateWaterDropDataParams"), exports);
 __exportStar(require("./WaterDropProps"), exports);
-__exportStar(require("./WaterDropShapeParams"), exports);
+__exportStar(require("./WatercolorGeneratorProps"), exports);
 __exportStar(require("./PointObj"), exports);

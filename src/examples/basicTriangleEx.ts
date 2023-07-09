@@ -1,9 +1,9 @@
-import { GenerateWaterDropDataParams } from "../types";
+import { GenerateWaterDropDataParams, WatercolorGeneratorProps } from "../types";
 
 const svgHeight: number = 1000
 const svgWidth: number = 1000
 
-export const basicTriangleEx: GenerateWaterDropDataParams = {
+const basicTriangle: GenerateWaterDropDataParams = {
     initPolygonPoints: 3,
     initPolygonRadius: svgHeight * .5,
     originX: svgWidth * .5,
@@ -16,6 +16,12 @@ export const basicTriangleEx: GenerateWaterDropDataParams = {
     maxNumberOfRecurrsionsForInitDeform: 3,
     maxRandomNumberForOverlayDeform: 3,
     maxNumberOfRecurrsionsForOverlayDeform: 3,
+}
+
+export const basicTriangleEx: WatercolorGeneratorProps = {
     svgHeight: svgHeight,
     svgWidth: svgWidth,
+    watercolorShapes: [
+        basicTriangle
+    ]
 }

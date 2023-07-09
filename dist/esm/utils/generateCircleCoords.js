@@ -1,9 +1,9 @@
 import { calcXYCoordsOfCircleWithAngle } from "./calcXYCoordsOfCircleWithAngle";
-export const generateCircleCoords = (numberOfPoints, radius, origin) => {
+export const generateCircleCoords = (numberOfPoints, radius, origin, initRotationAngle) => {
     const { originX, originY } = origin;
     const emptyArray = new Array(numberOfPoints).fill(undefined);
     const angleInterval = 360 / numberOfPoints;
     return emptyArray.map((u, i) => {
-        return calcXYCoordsOfCircleWithAngle(angleInterval * i, radius, originX, originY);
+        return calcXYCoordsOfCircleWithAngle(angleInterval * i, radius, originX, originY, initRotationAngle);
     });
 };

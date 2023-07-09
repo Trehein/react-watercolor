@@ -11,7 +11,5 @@ export type GenerateWaterDropDataParams = {
     maxNumberOfRecurrsionsForInitDeform: number,
     maxRandomNumberForOverlayDeform: number,
     maxNumberOfRecurrsionsForOverlayDeform: number,
-    svgHeight: number,
-    svgWidth: number,
     initRotationAngle?: number | ((index: number) => number),
 }
