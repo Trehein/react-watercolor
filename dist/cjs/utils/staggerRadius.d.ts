@@ -1,1 +1,1 @@
-export declare const staggerRadius: (index: number, svgHeight: number, numberOfInitialShapeLayers: number) => number;
+export declare const staggerRadius: (index: number, maxRadius: number, numberOfInitialShapeLayers: number) => number;

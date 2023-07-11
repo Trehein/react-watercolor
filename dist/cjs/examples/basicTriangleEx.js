@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.basicTriangleEx = void 0;
-const svgHeight = 1000;
-const svgWidth = 1000;
+const svgHeight = 500;
+const svgWidth = 500;
 const basicTriangle = {
     initPolygonPoints: 3,
     initPolygonRadius: svgHeight * .5,

@@ -16,6 +16,5 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./basicTriangleEx"), exports);
 __exportStar(require("./crossingLinesEx"), exports);
-__exportStar(require("./horizontalLineEx"), exports);
 __exportStar(require("./lineEx"), exports);
 __exportStar(require("./staggeredRadiusEx"), exports);
