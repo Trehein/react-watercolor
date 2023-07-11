@@ -18,5 +18,5 @@
 <!-- line -->
 ![lineEx](https://github.com/Trehein/react-watercolor/assets/18636420/51e52672-c4b6-431b-a71b-4ba981bae87a)
 
-<!-- staggeredRadius ->
+<!-- staggeredRadius -->
 ![staggeredRadius](https://github.com/Trehein/react-watercolor/assets/18636420/dc595910-5589-45f9-b61f-5c60f75100cb)
