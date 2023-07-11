@@ -1,7 +1,7 @@
 import { GenerateWaterDropDataParams, WatercolorGeneratorProps } from "../types";
 
-const svgHeight: number = 1000
-const svgWidth: number = 1000
+const svgHeight: number = 500
+const svgWidth: number = 500
 
 const horizontalLine: GenerateWaterDropDataParams = {
     initPolygonPoints: 2,

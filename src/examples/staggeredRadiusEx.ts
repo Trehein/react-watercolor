@@ -1,8 +1,8 @@
 import { GenerateWaterDropDataParams, WatercolorGeneratorProps } from "../types";
 import { staggerRadius } from "../utils";
 
-const svgHeight: number = 1000
-const svgWidth: number = 1000
+const svgHeight: number = 500
+const svgWidth: number = 500
 const numberOfInitialShapeLayers = 12
 
 const staggeredRadius: GenerateWaterDropDataParams = {
@@ -27,3 +27,4 @@ export const staggeredRadiusEx: WatercolorGeneratorProps = {
         staggeredRadius
     ]
 }
+
