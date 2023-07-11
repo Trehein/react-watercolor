@@ -1,7 +1,7 @@
-export const staggerRadius: (index: number, svgHeight: number, numberOfInitialShapeLayers: number) => number = (
+export const staggerRadius: (index: number, maxRadius: number, numberOfInitialShapeLayers: number) => number = (
     index: number, 
-    svgHeight: number, 
+    maxRadius: number, 
     numberOfInitialShapeLayers: number
 ) => {
-    return (svgHeight * .5) * (1 - (1 / numberOfInitialShapeLayers) * index)
+    return maxRadius * (1 - (1 / numberOfInitialShapeLayers) * index)
 }

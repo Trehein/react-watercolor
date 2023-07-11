@@ -1,5 +1,5 @@
 import { WatercolorGenerator } from "../components";
-import { basicTriangleEx, horizontalLineEx, staggeredRadiusEx, crossingLinesEx, lineEx } from '../examples'
+import { basicTriangleEx, staggeredRadiusEx, crossingLinesEx, lineEx } from '../examples'
 
 export default {
     title: 'components/WatercolorGenerator',

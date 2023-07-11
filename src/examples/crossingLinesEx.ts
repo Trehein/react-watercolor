@@ -3,12 +3,9 @@ import { GenerateWaterDropDataParams, WatercolorGeneratorProps } from "../types"
 const svgHeight: number = 500
 const svgWidth: number = 500
 
-const horizontalLine: GenerateWaterDropDataParams = {
+const stuffThatIsTheSameForEach = {
     initPolygonPoints: 2,
     initPolygonRadius: svgHeight * .5,
-    originX: svgWidth * .5,
-    originY: svgHeight * .5,
-    colors: ['blue'],
     opacity: .035,              
     numberOfOverlays: 3,
     numberOfInitialShapeLayers: 12,
@@ -18,20 +15,27 @@ const horizontalLine: GenerateWaterDropDataParams = {
     maxNumberOfRecurrsionsForOverlayDeform: 3,
 }
 
-const verticalLine: GenerateWaterDropDataParams = {
-    initPolygonPoints: 2,
-    initPolygonRadius: svgHeight * .5,
+const horizontalLine: GenerateWaterDropDataParams = {
     originX: svgWidth * .5,
+    originY: svgHeight * .25,
+    colors: ['blue'],
+    ...stuffThatIsTheSameForEach
+}
+
+const verticalLine: GenerateWaterDropDataParams = {
+    originX: svgWidth * .25,
     originY: svgHeight * .5,
     colors: ['red'],
-    opacity: .035,              
-    numberOfOverlays: 3,
-    numberOfInitialShapeLayers: 12,
-    maxRandomNumberForInitDeform: 20,
-    maxNumberOfRecurrsionsForInitDeform: 3,
-    maxRandomNumberForOverlayDeform: 3,
-    maxNumberOfRecurrsionsForOverlayDeform: 3,
-    initRotationAngle: 90
+    initRotationAngle: 90,
+    ...stuffThatIsTheSameForEach
+}
+
+const diagonalLine: GenerateWaterDropDataParams = {
+    originX: svgWidth * .5,
+    originY: svgHeight * .5,
+    colors: ['gold'],
+    initRotationAngle: 45,
+    ...stuffThatIsTheSameForEach
 }
 
 export const crossingLinesEx: WatercolorGeneratorProps = {
@@ -39,6 +43,7 @@ export const crossingLinesEx: WatercolorGeneratorProps = {
     svgWidth: svgWidth,
     watercolorShapes: [
         horizontalLine,
-        verticalLine
+        verticalLine,
+        diagonalLine
     ]
 }
