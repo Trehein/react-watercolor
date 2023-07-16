@@ -4,12 +4,12 @@ import { WaterDrop } from './WaterDrop'
 import { generateWaterDropData } from '../../utils/generateWaterDropData'
 
 export const WatercolorGenerator: React.FC<WatercolorGeneratorProps> = (props) => {    
-    const {svgHeight, svgWidth, watercolorShapes} = props
+    const {svgHeight, svgWidth, watercolorShapes, backgroundColor} = props
 
     return (
         <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
             <svg height={svgHeight} width={svgWidth}>
-                <rect fill='white' height={svgHeight} width={svgWidth} x={0} y={0}/>
+                <rect fill={backgroundColor ? backgroundColor : 'white'} height={svgHeight} width={svgWidth} x={0} y={0}/>
                     {
                         watercolorShapes.map((shape: GenerateWaterDropDataParams, i: number) => {
                             return (
