@@ -2,6 +2,54 @@
 ```
 npm i react-watercolor
 ```
+![baseGreenEx](https://github.com/Trehein/react-watercolor/assets/18636420/6b0c7d75-bbf6-4fc2-b728-c7eb0c87b05c)
+**BaseExample.tsx**
+```typescript
+import {GenerateWaterDropDataParams, WatercolorGenerator, WatercolorGeneratorProps} from 'react-watercolor'
+
+export default const BaseExample = () => {
+  const svgHeight: number = 800
+  const svgWidth: number = 800
+  const numberOfInitialShapeLayers = 12
+
+  const staggerRadius: (index: number, maxRadius: number, numberOfInitialShapeLayers: number) => number = (
+      index: number, 
+      maxRadius: number, 
+      numberOfInitialShapeLayers: number
+  ) => {
+      return maxRadius * (1 - (1 / numberOfInitialShapeLayers) * index)
+  }
+  
+  const base: GenerateWaterDropDataParams = {
+    initPolygonPoints: 12,
+    initPolygonRadius: (index:number) => staggerRadius(index, svgHeight * .35, numberOfInitialShapeLayers),
+    originX: svgWidth * .5,
+    originY: svgHeight * .5,
+    colors: ['rgb(0, 105, 92)'],
+    opacity: .015,              
+    numberOfOverlays: 6,
+    numberOfInitialShapeLayers: numberOfInitialShapeLayers,
+    maxRandomNumberForInitDeform: 50,
+    maxNumberOfRecurrsionsForInitDeform: 5,
+    maxRandomNumberForOverlayDeform: 5,
+    maxNumberOfRecurrsionsForOverlayDeform: 3,
+  }
+  
+  const baseEx: WatercolorGeneratorProps = {
+      svgHeight: svgHeight,
+      svgWidth: svgWidth,
+      watercolorShapes: [
+          base
+      ]
+  }
+  
+  return (
+    <WatercolorGenerator 
+      {...baseEx}
+    />
+  )
+}
+```
 ![SimpleTriangle](https://github.com/Trehein/react-watercolor/assets/18636420/69c1e93a-ac26-4f62-8444-001c49ed5bb5)
 **BlueTriangle.tsx**
 ```typescript
@@ -197,6 +245,71 @@ export default const StaggeredInitRadius = () => {
   return (
     <WatercolorGenerator 
       {...lineEx}
+    />
+  )
+}
+```
+![everything2Ex](https://github.com/Trehein/react-watercolor/assets/18636420/7a731e67-0285-45e3-a462-cec6e161236c)
+**Everything.tsx**
+```typescript
+import {GenerateWaterDropDataParams, WatercolorGenerator, WatercolorGeneratorProps} from 'react-watercolor'
+
+export default const Everything = () => {
+  const svgHeight: number = 500
+  const svgWidth: number = 1000
+  const numberOfInitialShapeLayers = 12
+
+  const staggerRadius: (index: number, maxRadius: number, numberOfInitialShapeLayers: number) => number = (
+      index: number, 
+      maxRadius: number, 
+      numberOfInitialShapeLayers: number
+  ) => {
+      return maxRadius * (1 - (1 / numberOfInitialShapeLayers) * index)
+  }
+  
+  const purple: GenerateWaterDropDataParams = {
+    initPolygonPoints: 12,
+    initPolygonRadius: (index:number) => staggerRadius(index, svgHeight * .25, numberOfInitialShapeLayers),
+    originX: svgWidth * .35,
+    originY: svgHeight * .35,
+    colors: ['rebeccapurple'],
+    opacity: .1,              
+    numberOfOverlays: 6,
+    numberOfInitialShapeLayers: 3,
+    maxRandomNumberForInitDeform: 100,
+    maxNumberOfRecurrsionsForInitDeform: 3,
+    maxRandomNumberForOverlayDeform: 25,
+    maxNumberOfRecurrsionsForOverlayDeform: 3,
+  }
+
+  const aqua: GenerateWaterDropDataParams = {
+      initPolygonPoints: 12,
+      initPolygonRadius: (index:number) => staggerRadius(index, svgHeight * .2, numberOfInitialShapeLayers),
+      originX: svgWidth * .65,
+      originY: svgHeight * .65,
+      colors: ['aqua'],
+      opacity: .1,              
+      numberOfOverlays: 6,
+      numberOfInitialShapeLayers: 2,
+      maxRandomNumberForInitDeform: 100,
+      maxNumberOfRecurrsionsForInitDeform: 6,
+      maxRandomNumberForOverlayDeform: 15,
+      maxNumberOfRecurrsionsForOverlayDeform: 3,
+  }
+
+  const everythingEx: WatercolorGeneratorProps = {
+      svgHeight: svgHeight,
+      svgWidth: svgWidth,
+      watercolorShapes: [
+          purple,
+          aqua
+      ],
+      backgroundColor: 'salmon'
+  }
+  
+  return (
+    <WatercolorGenerator 
+      {...everythingEx}
     />
   )
 }
