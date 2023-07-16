@@ -2,7 +2,7 @@
 ```
 npm i react-watercolor
 ```
-![baseEx](https://github.com/Trehein/react-watercolor/assets/18636420/f584a79a-f7a1-4b1c-8a72-a5b141ca004d)
+![baseGreenEx](https://github.com/Trehein/react-watercolor/assets/18636420/6b0c7d75-bbf6-4fc2-b728-c7eb0c87b05c)
 **BaseExample.tsx**
 ```typescript
 import {GenerateWaterDropDataParams, WatercolorGenerator, WatercolorGeneratorProps} from 'react-watercolor'
@@ -249,7 +249,7 @@ export default const StaggeredInitRadius = () => {
   )
 }
 ```
-![everythingEx](https://github.com/Trehein/react-watercolor/assets/18636420/c8967736-ea03-4a42-a5df-9ebe64b76d76)
+![everything2Ex](https://github.com/Trehein/react-watercolor/assets/18636420/7a731e67-0285-45e3-a462-cec6e161236c)
 **Everything.tsx**
 ```typescript
 import {GenerateWaterDropDataParams, WatercolorGenerator, WatercolorGeneratorProps} from 'react-watercolor'
