@@ -2,6 +2,54 @@
 ```
 npm i react-watercolor
 ```
+![baseEx](https://github.com/Trehein/react-watercolor/assets/18636420/f584a79a-f7a1-4b1c-8a72-a5b141ca004d)
+**BaseExample.tsx**
+```typescript
+import {GenerateWaterDropDataParams, WatercolorGenerator, WatercolorGeneratorProps} from 'react-watercolor'
+
+export default const BaseExample = () => {
+  const svgHeight: number = 800
+  const svgWidth: number = 800
+  const numberOfInitialShapeLayers = 12
+
+  const staggerRadius: (index: number, maxRadius: number, numberOfInitialShapeLayers: number) => number = (
+      index: number, 
+      maxRadius: number, 
+      numberOfInitialShapeLayers: number
+  ) => {
+      return maxRadius * (1 - (1 / numberOfInitialShapeLayers) * index)
+  }
+  
+  const base: GenerateWaterDropDataParams = {
+    initPolygonPoints: 12,
+    initPolygonRadius: (index:number) => staggerRadius(index, svgHeight * .35, numberOfInitialShapeLayers),
+    originX: svgWidth * .5,
+    originY: svgHeight * .5,
+    colors: ['rgb(0, 105, 92)'],
+    opacity: .015,              
+    numberOfOverlays: 6,
+    numberOfInitialShapeLayers: numberOfInitialShapeLayers,
+    maxRandomNumberForInitDeform: 50,
+    maxNumberOfRecurrsionsForInitDeform: 5,
+    maxRandomNumberForOverlayDeform: 5,
+    maxNumberOfRecurrsionsForOverlayDeform: 3,
+  }
+  
+  const baseEx: WatercolorGeneratorProps = {
+      svgHeight: svgHeight,
+      svgWidth: svgWidth,
+      watercolorShapes: [
+          base
+      ]
+  }
+  
+  return (
+    <WatercolorGenerator 
+      {...baseEx}
+    />
+  )
+}
+```
 ![SimpleTriangle](https://github.com/Trehein/react-watercolor/assets/18636420/69c1e93a-ac26-4f62-8444-001c49ed5bb5)
 **BlueTriangle.tsx**
 ```typescript
@@ -206,7 +254,7 @@ export default const StaggeredInitRadius = () => {
 ```typescript
 import {GenerateWaterDropDataParams, WatercolorGenerator, WatercolorGeneratorProps} from 'react-watercolor'
 
-export default const StaggeredInitRadius = () => {
+export default const Everything = () => {
   const svgHeight: number = 500
   const svgWidth: number = 1000
   const numberOfInitialShapeLayers = 12
