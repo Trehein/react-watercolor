@@ -201,6 +201,71 @@ export default const StaggeredInitRadius = () => {
   )
 }
 ```
+![everythingEx](https://github.com/Trehein/react-watercolor/assets/18636420/c8967736-ea03-4a42-a5df-9ebe64b76d76)
+**Everything.tsx**
+```typescript
+import {GenerateWaterDropDataParams, WatercolorGenerator, WatercolorGeneratorProps} from 'react-watercolor'
+
+export default const StaggeredInitRadius = () => {
+  const svgHeight: number = 500
+  const svgWidth: number = 1000
+  const numberOfInitialShapeLayers = 12
+
+  const staggerRadius: (index: number, maxRadius: number, numberOfInitialShapeLayers: number) => number = (
+      index: number, 
+      maxRadius: number, 
+      numberOfInitialShapeLayers: number
+  ) => {
+      return maxRadius * (1 - (1 / numberOfInitialShapeLayers) * index)
+  }
+  
+  const purple: GenerateWaterDropDataParams = {
+    initPolygonPoints: 12,
+    initPolygonRadius: (index:number) => staggerRadius(index, svgHeight * .25, numberOfInitialShapeLayers),
+    originX: svgWidth * .35,
+    originY: svgHeight * .35,
+    colors: ['rebeccapurple'],
+    opacity: .1,              
+    numberOfOverlays: 6,
+    numberOfInitialShapeLayers: 3,
+    maxRandomNumberForInitDeform: 100,
+    maxNumberOfRecurrsionsForInitDeform: 3,
+    maxRandomNumberForOverlayDeform: 25,
+    maxNumberOfRecurrsionsForOverlayDeform: 3,
+  }
+
+  const aqua: GenerateWaterDropDataParams = {
+      initPolygonPoints: 12,
+      initPolygonRadius: (index:number) => staggerRadius(index, svgHeight * .2, numberOfInitialShapeLayers),
+      originX: svgWidth * .65,
+      originY: svgHeight * .65,
+      colors: ['aqua'],
+      opacity: .1,              
+      numberOfOverlays: 6,
+      numberOfInitialShapeLayers: 2,
+      maxRandomNumberForInitDeform: 100,
+      maxNumberOfRecurrsionsForInitDeform: 6,
+      maxRandomNumberForOverlayDeform: 15,
+      maxNumberOfRecurrsionsForOverlayDeform: 3,
+  }
+
+  const everythingEx: WatercolorGeneratorProps = {
+      svgHeight: svgHeight,
+      svgWidth: svgWidth,
+      watercolorShapes: [
+          purple,
+          aqua
+      ],
+      backgroundColor: 'salmon'
+  }
+  
+  return (
+    <WatercolorGenerator 
+      {...everythingEx}
+    />
+  )
+}
+```
 
 
 
