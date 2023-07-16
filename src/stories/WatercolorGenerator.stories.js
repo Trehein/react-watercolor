@@ -1,5 +1,5 @@
 import { WatercolorGenerator } from "../components";
-import { basicTriangleEx, staggeredRadiusEx, crossingLinesEx, lineEx } from '../examples'
+import { basicTriangleEx, staggeredRadiusEx, crossingLinesEx, lineEx, everythingEx, baseEx } from '../examples'
 
 export default {
     title: 'components/WatercolorGenerator',
@@ -42,6 +42,26 @@ export const StaggeredRadius = {
     />,
     args: {
         ...staggeredRadiusEx
+    },
+    parameters: {  /* ... */ },
+}
+
+export const Everything = {
+    render: (args) => <WatercolorGenerator
+        {...args}
+    />,
+    args: {
+        ...everythingEx
+    },
+    parameters: {  /* ... */ },
+}
+
+export const Base = {
+    render: (args) => <WatercolorGenerator
+        {...args}
+    />,
+    args: {
+        ...baseEx
     },
     parameters: {  /* ... */ },
 }

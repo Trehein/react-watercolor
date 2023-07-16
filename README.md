@@ -205,7 +205,7 @@ export default const StaggeredInitRadius = () => {
 
 
 
-<!-- optional backgroundcolor -->
+<!-- todo - gradient background? -->
 <!-- todo - color array with weights -->
 <!-- todo - custom shapes -->
 <!-- todo - text masking -->
