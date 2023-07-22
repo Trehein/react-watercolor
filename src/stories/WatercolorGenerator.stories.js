@@ -1,9 +1,29 @@
 import { WatercolorGenerator } from "../components";
-import { basicTriangleEx, staggeredRadiusEx, crossingLinesEx, lineEx, everythingEx, baseEx } from '../examples'
+import { 
+    basicTriangleEx, 
+    staggeredRadiusEx, 
+    crossingLinesEx, 
+    lineEx, 
+    everythingEx, 
+    baseEx, 
+    numberOfInitialShapesEx,
+    numberOfInitialOverlaysEx,
+    numberOfInitialShapesAndOverlaysEx
+ } from '../examples'
 
 export default {
     title: 'components/WatercolorGenerator',
     component: WatercolorGenerator
+}
+
+export const Base = {
+    render: (args) => <WatercolorGenerator
+        {...args}
+    />,
+    args: {
+        ...baseEx
+    },
+    parameters: {  /* ... */ },
 }
 
 export const BasicTriangle = {
@@ -56,12 +76,37 @@ export const Everything = {
     parameters: {  /* ... */ },
 }
 
-export const Base = {
+export const NumberOfOverlays = {
     render: (args) => <WatercolorGenerator
         {...args}
     />,
     args: {
-        ...baseEx
+        ...numberOfInitialOverlaysEx
     },
     parameters: {  /* ... */ },
 }
+
+export const NumberOfInitialShapeLayers = {
+    render: (args) => <WatercolorGenerator
+        {...args}
+    />,
+    args: {
+        ...numberOfInitialShapesEx
+    },
+    parameters: {  /* ... */ },
+}
+
+export const NumberOfInitialOverlaysAndShapeLayers = {
+    render: (args) => <WatercolorGenerator
+        {...args}
+    />,
+    args: {
+        ...numberOfInitialShapesAndOverlaysEx
+    },
+    parameters: {  /* ... */ },
+}
+
+
+
+
+

@@ -1,3 +1,4 @@
+export * from './calcEvenlySpacedNumbers'
 export * from './calcXYCoordsOfCircleWithAngle'
 export * from './generateRandomPoints'
 export * from './generateCircleCoords'
