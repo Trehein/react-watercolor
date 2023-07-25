@@ -9,10 +9,10 @@ const stuffThatIsTheSameForEach = {
     colors: ['#025464'],
     opacity: .2,
     numberOfInitialShapeLayers: 1,
-    maxRandomNumberForInitDeform: 40,
+    maxRandomNumberForInitDeform: 30,
     maxNumberOfRecurrsionsForInitDeform: 1,
     maxRandomNumberForOverlayDeform: 10,
-    maxNumberOfRecurrsionsForOverlayDeform: 5,
+    maxNumberOfRecurrsionsForOverlayDeform: 1,
     initRotationAngle: 90
 };
 const shapesArray = new Array(numberOfShapesAndOverlays).fill(undefined).map((item, index) => {

@@ -68,7 +68,7 @@ export default const BlackLine = () => {
 | numberOfInitialShapeLayers | number |  | Each shape layer is made of a randomized version of the initial polygon that was deformed |
 | maxRandomNumberForInitDeform | number |  | Dictates how much variance randomly generated midpoints can have on a guassian skew with the highest likelyhood being the midpoint between this max and 0. This deforms the initial polygon that the lower layers will iterate on.|
 | maxNumberOfRecurrsionsForInitDeform | number |  | The maximum number of times that a new random midpoint will be generated between two endpoints in the intial deforming. |
-| maxRandomNumberForOverlayDeform | number |  | Guassian skew max for each overlay layer|
+| maxRandomNumberForOverlayDeform | number |  | Guassian skew max for each overlay layer that will lead to more jagged deformations on generated midpoints |
 | maxNumberOfRecurrsionsForOverlayDeform | number |  | The maximum number of times that a new random midpoint will be generated between two endpoints in each overlay. |
 | initRotationAngle? | number | number &#124; ((index: number) => number) | Rotates the inital polygon shape in degrees. |
 
@@ -497,6 +497,9 @@ const numberOfOverlaysEx: WatercolorGeneratorProps = {
 ## The Maths! ##
 ```typescript
 numberOfPolygonsGenerated = numberOfInitialShapeLayers * numberOfOverlays
+
+numberOfPointsInEachOverlayAfterDeform = 2 ^ (maxNumberOfRecurrsionsForInitDeform + maxNumberOfRecurrsionsForOverlayDeform + 1)
+
 ```
 
 <!-- todo - gradient background? -->

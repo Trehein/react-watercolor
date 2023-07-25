@@ -7,3 +7,7 @@ export * from './everythingEx';
 export * from './numberOfInitialOverlaysEx';
 export * from './numberOfInitialShapesEx';
 export * from './numberOfInitialShapesAndOverlaysEx';
+export * from './maxRandomNumberForInitDeformEx';
+export * from './maxNumberOfRecurrsionsForInitDeformEx';
+export * from './maxRandomNumberForOverlayDeformEx';
+export * from './maxNumberOfRecurrsionsForOverlayDeformEx';

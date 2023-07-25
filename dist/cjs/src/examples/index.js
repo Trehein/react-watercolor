@@ -23,3 +23,7 @@ __exportStar(require("./everythingEx"), exports);
 __exportStar(require("./numberOfInitialOverlaysEx"), exports);
 __exportStar(require("./numberOfInitialShapesEx"), exports);
 __exportStar(require("./numberOfInitialShapesAndOverlaysEx"), exports);
+__exportStar(require("./maxRandomNumberForInitDeformEx"), exports);
+__exportStar(require("./maxNumberOfRecurrsionsForInitDeformEx"), exports);
+__exportStar(require("./maxRandomNumberForOverlayDeformEx"), exports);
+__exportStar(require("./maxNumberOfRecurrsionsForOverlayDeformEx"), exports);

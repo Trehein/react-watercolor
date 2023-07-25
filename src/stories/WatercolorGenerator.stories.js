@@ -8,7 +8,11 @@ import {
     baseEx, 
     numberOfInitialShapesEx,
     numberOfInitialOverlaysEx,
-    numberOfInitialShapesAndOverlaysEx
+    numberOfInitialShapesAndOverlaysEx,
+    maxRandomNumberForInitDeformEx,
+    maxNumberOfRecurrsionsForInitDeformEx,
+    maxRandomNumberForOverlayDeformEx,
+    maxNumberOfRecurrsionsForOverlayDeformEx
  } from '../examples'
 
 export default {
@@ -102,6 +106,46 @@ export const NumberOfInitialOverlaysAndShapeLayers = {
     />,
     args: {
         ...numberOfInitialShapesAndOverlaysEx
+    },
+    parameters: {  /* ... */ },
+}
+
+export const MaxRandomNumberForInitDeform = {
+    render: (args) => <WatercolorGenerator
+        {...args}
+    />,
+    args: {
+        ...maxRandomNumberForInitDeformEx
+    },
+    parameters: {  /* ... */ },
+}
+
+export const MaxNumberOfRecurrsionsForInitDeform = {
+    render: (args) => <WatercolorGenerator
+        {...args}
+    />,
+    args: {
+        ...maxNumberOfRecurrsionsForInitDeformEx
+    },
+    parameters: {  /* ... */ },
+}
+
+export const MaxRandomNumberForOverlayDeform = {
+    render: (args) => <WatercolorGenerator
+        {...args}
+    />,
+    args: {
+        ...maxRandomNumberForOverlayDeformEx
+    },
+    parameters: {  /* ... */ },
+}
+
+export const MaxNumberOfRecurrsionsForOverlayDeform = {
+    render: (args) => <WatercolorGenerator
+        {...args}
+    />,
+    args: {
+        ...maxNumberOfRecurrsionsForOverlayDeformEx
     },
     parameters: {  /* ... */ },
 }

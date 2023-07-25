@@ -10,24 +10,24 @@ const stuffThatIsTheSameForEach = {
     initPolygonRadius: svgHeight * .5,
     originY: svgHeight * .5,
     colors: ['#025464'],
-    opacity: .2,
-    numberOfOverlays: 1,              
-    maxRandomNumberForInitDeform: 30,
+    opacity: 1,              
+    maxRandomNumberForInitDeform: 40,
     maxNumberOfRecurrsionsForInitDeform: 1,
-    maxRandomNumberForOverlayDeform: 10,
     maxNumberOfRecurrsionsForOverlayDeform: 1,
+    numberOfOverlays: 1,
+    numberOfInitialShapeLayers: 1,
     initRotationAngle: 90
 }
 
 const shapesArray: GenerateWaterDropDataParams[] = new Array(numberOfShapesAndOverlays).fill(undefined).map((item: any, index: number) => {
     return {
-        numberOfInitialShapeLayers: index + 1,
+        maxRandomNumberForOverlayDeform: 25 + (index * 25),
         originX: calcEvenlySpacedNumbers(svgWidth, index, numberOfShapesAndOverlays),
         ...stuffThatIsTheSameForEach
     }
 })
 
-export const numberOfInitialShapesEx: WatercolorGeneratorProps = {
+export const maxRandomNumberForOverlayDeformEx: WatercolorGeneratorProps = {
     svgHeight: svgHeight,
     svgWidth: svgWidth,
     watercolorShapes: shapesArray,

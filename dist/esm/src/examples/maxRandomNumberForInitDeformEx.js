@@ -7,17 +7,18 @@ const stuffThatIsTheSameForEach = {
     initPolygonRadius: svgHeight * .5,
     originY: svgHeight * .5,
     colors: ['#025464'],
-    opacity: .2,
-    maxRandomNumberForInitDeform: 30,
-    maxNumberOfRecurrsionsForInitDeform: 1,
-    maxRandomNumberForOverlayDeform: 10,
+    opacity: 1,
+    maxNumberOfRecurrsionsForInitDeform: 10,
+    maxRandomNumberForOverlayDeform: 1,
     maxNumberOfRecurrsionsForOverlayDeform: 1,
+    numberOfOverlays: 1,
+    numberOfInitialShapeLayers: 1,
     initRotationAngle: 90
 };
 const shapesArray = new Array(numberOfShapesAndOverlays).fill(undefined).map((item, index) => {
-    return Object.assign({ numberOfOverlays: index + 1, numberOfInitialShapeLayers: index + 1, originX: calcEvenlySpacedNumbers(svgWidth, index, numberOfShapesAndOverlays) }, stuffThatIsTheSameForEach);
+    return Object.assign({ maxRandomNumberForInitDeform: index * 5, originX: calcEvenlySpacedNumbers(svgWidth, index, numberOfShapesAndOverlays) }, stuffThatIsTheSameForEach);
 });
-export const numberOfInitialShapesAndOverlaysEx = {
+export const maxRandomNumberForInitDeformEx = {
     svgHeight: svgHeight,
     svgWidth: svgWidth,
     watercolorShapes: shapesArray,

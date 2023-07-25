@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.numberOfInitialOverlaysEx = void 0;
-const utils_1 = require("../utils");
+import { calcEvenlySpacedNumbers } from "../utils";
 const svgHeight = 500;
 const svgWidth = 1000;
 const numberOfShapesAndOverlays = 5;
@@ -10,18 +7,18 @@ const stuffThatIsTheSameForEach = {
     initPolygonRadius: svgHeight * .5,
     originY: svgHeight * .5,
     colors: ['#025464'],
-    opacity: .2,
-    numberOfInitialShapeLayers: 1,
-    maxRandomNumberForInitDeform: 30,
+    opacity: 1,
+    maxRandomNumberForInitDeform: 40,
     maxNumberOfRecurrsionsForInitDeform: 1,
-    maxRandomNumberForOverlayDeform: 10,
     maxNumberOfRecurrsionsForOverlayDeform: 1,
+    numberOfOverlays: 1,
+    numberOfInitialShapeLayers: 1,
     initRotationAngle: 90
 };
 const shapesArray = new Array(numberOfShapesAndOverlays).fill(undefined).map((item, index) => {
-    return Object.assign({ numberOfOverlays: index + 1, originX: (0, utils_1.calcEvenlySpacedNumbers)(svgWidth, index, numberOfShapesAndOverlays) }, stuffThatIsTheSameForEach);
+    return Object.assign({ maxRandomNumberForOverlayDeform: 25 + (index * 25), originX: calcEvenlySpacedNumbers(svgWidth, index, numberOfShapesAndOverlays) }, stuffThatIsTheSameForEach);
 });
-exports.numberOfInitialOverlaysEx = {
+export const maxRandomNumberForOverlayDeformEx = {
     svgHeight: svgHeight,
     svgWidth: svgWidth,
     watercolorShapes: shapesArray,
