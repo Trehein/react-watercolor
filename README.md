@@ -552,6 +552,7 @@ export default const MaxRandomNumberForInitDeformEx: React.FC = () => {
 }
 ```
 **maxRandomNumberForOverlayDeform** determins how far overlay generated points can vary from the initial points using the same guassian curve ideas.
+![maxRandomNumberForOverlayDeform](https://github.com/Trehein/react-watercolor/assets/18636420/cd9dd316-c73a-4ebe-8a71-522dc346efda)
 ### MaxRandomNumberForInitDeformEx.tsx ###
 ```typescript
 import {GenerateWaterDropDataParams, WatercolorGenerator, WatercolorGeneratorProps, calcEvenlySpacedNumbers} from 'react-watercolor'
@@ -598,6 +599,7 @@ export default const MaxRandomNumberForInitDeformEx: React.FC = () => {
 }
 ```
 **maxNumberOfRecurrsionsForInitDeform** controls how many times the initial point array will be iterated on, each time, adding a new midpoint between midpoints.
+![maxNumberOfRecurrsionsForInitDeform](https://github.com/Trehein/react-watercolor/assets/18636420/20730810-2364-41ab-822e-9efbdbde6671)
 ### MaxNumberOfRecurrsionsForInitDeformEx.tsx ###
 ```typescript
 import {GenerateWaterDropDataParams, WatercolorGenerator, WatercolorGeneratorProps, calcEvenlySpacedNumbers} from 'react-watercolor'
@@ -644,6 +646,7 @@ export default const MaxRandomNumberForInitDeformEx: React.FC = () => {
 }
 ```
 **maxNumberOfRecurrsionsForOverlayDeform** further deforms the initial deformed polygon for each overlay.
+![maxNumberOfRecurrsionsForOverlayDeform](https://github.com/Trehein/react-watercolor/assets/18636420/e1b675c4-5ae5-4676-b7d4-375acf9425ed)
 ### MaxNumberOfRecurrsionsForOverlayDeformEx.tsx ###
 ```typescript
 import {GenerateWaterDropDataParams, WatercolorGenerator, WatercolorGeneratorProps, calcEvenlySpacedNumbers} from 'react-watercolor'
@@ -693,6 +696,7 @@ export default const MaxNumberOfRecurrsionsForOverlayDeformEx: React.FC = () => 
 ```typescript
 numberOfPointsInEachOverlayAfterDeform = initPolygonPoints * (2 ^ maxNumberOfRecurrsionsForInitDeform + maxNumberOfRecurrsionsForOverlayDeform)
 ```
+![maxNumberOfRecursionsForInitAndOverlays](https://github.com/Trehein/react-watercolor/assets/18636420/e57ca680-4a52-4250-829c-43eca80f9f2d)
 ### MaxNumberOfRecursionsForInitAndOverlaysEx.tsx ###
 ```typescript
 import {GenerateWaterDropDataParams, WatercolorGenerator, WatercolorGeneratorProps, calcEvenlySpacedNumbers} from 'react-watercolor'
