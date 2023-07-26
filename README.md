@@ -366,10 +366,10 @@ const stuffThatIsTheSameForEach = {
     colors: ['#6527BE'],
     opacity: .2,              
     numberOfInitialShapeLayers: 1,
-    maxRandomNumberForInitDeform: 40,
+    maxRandomNumberForInitDeform: 30,
     maxNumberOfRecurrsionsForInitDeform: 1,
     maxRandomNumberForOverlayDeform: 10,
-    maxNumberOfRecurrsionsForOverlayDeform: 5,
+    maxNumberOfRecurrsionsForOverlayDeform: 1,
     initRotationAngle: 90
 }
 
@@ -402,43 +402,43 @@ The **numberOfOverlays** makes a deformed copy of the initial shape. Each one of
 import {GenerateWaterDropDataParams, WatercolorGenerator, WatercolorGeneratorProps} from 'react-watercolor'
 
 export default const NumberOfOverlays = () => {
-const svgHeight: number = 500
-const svgWidth: number = 1000
-const numberOfShapesAndOverlays: number = 5
+  const svgHeight: number = 500
+  const svgWidth: number = 1000
+  const numberOfShapesAndOverlays: number = 5
 
-const calcEvenlySpacedNumbers: (fullDimension: number, index: number, numberOfPoints: number) => number = (fullDimension: number, index: number, numberOfPoints: number) => {
-    const distanceBetweenPoints = fullDimension / (numberOfPoints + 1)
-    return distanceBetweenPoints + (distanceBetweenPoints * index)
-}
+  const calcEvenlySpacedNumbers: (fullDimension: number, index: number, numberOfPoints: number) => number = (fullDimension: number, index: number, numberOfPoints: number) => {
+      const distanceBetweenPoints = fullDimension / (numberOfPoints + 1)
+      return distanceBetweenPoints + (distanceBetweenPoints * index)
+  }
 
-const stuffThatIsTheSameForEach = {
-    initPolygonPoints: 2,
-    initPolygonRadius: svgHeight * .5,
-    originY: svgHeight * .5,
-    colors: ['#6527BE'],
-    opacity: .2,              
-    numberOfInitialShapeLayers: 1,
-    maxRandomNumberForInitDeform: 40,
-    maxNumberOfRecurrsionsForInitDeform: 1,
-    maxRandomNumberForOverlayDeform: 10,
-    maxNumberOfRecurrsionsForOverlayDeform: 5,
-    initRotationAngle: 90
-}
+  const stuffThatIsTheSameForEach = {
+      initPolygonPoints: 2,
+      initPolygonRadius: svgHeight * .5,
+      originY: svgHeight * .5,
+      colors: ['#6527BE'],
+      opacity: .2,              
+      numberOfInitialShapeLayers: 1,
+      maxRandomNumberForInitDeform: 30,
+      maxNumberOfRecurrsionsForInitDeform: 1,
+      maxRandomNumberForOverlayDeform: 10,
+      maxNumberOfRecurrsionsForOverlayDeform: 1,
+      initRotationAngle: 90
+  }
 
-const shapesArray = new Array(numberOfShapesAndOverlays).fill(undefined).map((item: any, index: number) => {
-    return {
-        numberOfOverlays: index + 1,
-        originX: calcEvenlySpacedNumbers(svgWidth, index, numberOfShapesAndOverlays),
-        ...stuffThatIsTheSameForEach
-    }
-})
+  const shapesArray = new Array(numberOfShapesAndOverlays).fill(undefined).map((item: any, index: number) => {
+      return {
+          numberOfOverlays: index + 1,
+          originX: calcEvenlySpacedNumbers(svgWidth, index, numberOfShapesAndOverlays),
+          ...stuffThatIsTheSameForEach
+      }
+  })
 
-const numberOfOverlaysEx: WatercolorGeneratorProps = {
-    svgHeight: svgHeight,
-    svgWidth: svgWidth,
-    watercolorShapes: shapesArray,
-    backgroundColor: '#A7EDE7' 
-}
+  const numberOfOverlaysEx: WatercolorGeneratorProps = {
+      svgHeight: svgHeight,
+      svgWidth: svgWidth,
+      watercolorShapes: shapesArray,
+      backgroundColor: '#A7EDE7' 
+  }
   
   return (
     <WatercolorGenerator 
@@ -447,44 +447,47 @@ const numberOfOverlaysEx: WatercolorGeneratorProps = {
   )
 }
 ```
-
+The total number of polygons that make up a shape is calculated like this... 
+```typescript
+numberOfPolygonsGenerated = numberOfInitialShapeLayers * numberOfOverlays
+```
 ### NumberOfInitialShapesAndOverlaysEx.tsx ###
 ```typescript
 import {GenerateWaterDropDataParams, WatercolorGenerator, WatercolorGeneratorProps, calcEvenlySpacedNumbers} from 'react-watercolor'
 
 export default const NumberOfInitialShapesAndOverlaysEx: React.FC = () => {
-const svgHeight: number = 500
-const svgWidth: number = 1000
-const numberOfShapesAndOverlays: number = 5
+  const svgHeight: number = 500
+  const svgWidth: number = 1000
+  const numberOfShapesAndOverlays: number = 5
 
-const stuffThatIsTheSameForEach = {
-    initPolygonPoints: 2,
-    initPolygonRadius: svgHeight * .5,
-    originY: svgHeight * .5,
-    colors: ['#6527BE'],
-    opacity: .2,             
-    maxRandomNumberForInitDeform: 40,
-    maxNumberOfRecurrsionsForInitDeform: 1,
-    maxRandomNumberForOverlayDeform: 10,
-    maxNumberOfRecurrsionsForOverlayDeform: 5,
-    initRotationAngle: 90
-}
+  const stuffThatIsTheSameForEach = {
+      initPolygonPoints: 2,
+      initPolygonRadius: svgHeight * .5,
+      originY: svgHeight * .5,
+      colors: ['#6527BE'],
+      opacity: .2,             
+      maxRandomNumberForInitDeform: 30,
+      maxNumberOfRecurrsionsForInitDeform: 1,
+      maxRandomNumberForOverlayDeform: 10,
+      maxNumberOfRecurrsionsForOverlayDeform: 1,
+      initRotationAngle: 90
+  }
 
-const shapesArray = new Array(numberOfShapesAndOverlays).fill(undefined).map((item: any, index: number) => {
-    return {
-        numberOfOverlays: index + 1,
-        numberOfInitialShapeLayers: index + 1,        
-        originX: calcEvenlySpacedNumbers(svgWidth, index, numberOfShapesAndOverlays),
-        ...stuffThatIsTheSameForEach
-    }
-})
+  const shapesArray = new Array(numberOfShapesAndOverlays).fill(undefined).map((item: any, index: number) => {
+      return {
+          numberOfOverlays: index + 1,
+          numberOfInitialShapeLayers: index + 1,        
+          originX: calcEvenlySpacedNumbers(svgWidth, index, numberOfShapesAndOverlays),
+          ...stuffThatIsTheSameForEach
+      }
+  })
 
-const numberOfOverlaysEx: WatercolorGeneratorProps = {
-    svgHeight: svgHeight,
-    svgWidth: svgWidth,
-    watercolorShapes: shapesArray,
-    backgroundColor: '#A7EDE7' 
-}
+  const numberOfOverlaysEx: WatercolorGeneratorProps = {
+      svgHeight: svgHeight,
+      svgWidth: svgWidth,
+      watercolorShapes: shapesArray,
+      backgroundColor: '#A7EDE7' 
+  }
   
   return (
     <WatercolorGenerator 
@@ -493,13 +496,245 @@ const numberOfOverlaysEx: WatercolorGeneratorProps = {
   )
 }
 ```
+**maxRandomNumberForInitDeform** controls how far midpoints that are generated can be + or - this value based on a guassian curve for the intial deforming of the shapes. These points will be further split by the overlay deformation.    
+### MaxRandomNumberForInitDeformEx.tsx ###
+```typescript
+import {GenerateWaterDropDataParams, WatercolorGenerator, WatercolorGeneratorProps, calcEvenlySpacedNumbers} from 'react-watercolor'
 
+export default const MaxRandomNumberForInitDeformEx: React.FC = () => {
+  const svgHeight: number = 500
+  const svgWidth: number = 1000
+  const numberOfShapesAndOverlays: number = 5
+
+  const stuffThatIsTheSameForEach = {
+      initPolygonPoints: 2,
+      initPolygonRadius: svgHeight * .5,
+      originY: svgHeight * .5,
+      colors: ['#025464'],
+      opacity: 1,              
+      maxNumberOfRecurrsionsForInitDeform: 10,
+      maxRandomNumberForOverlayDeform: 1,
+      maxNumberOfRecurrsionsForOverlayDeform: 1,
+      numberOfOverlays: 1,
+      numberOfInitialShapeLayers: 1,
+      initRotationAngle: 90
+  }
+
+  const shapesArray: GenerateWaterDropDataParams[] = new Array(numberOfShapesAndOverlays).fill(undefined).map((item: any, index: number) => {
+      return {
+          maxRandomNumberForInitDeform: index * 5,
+          originX: calcEvenlySpacedNumbers(svgWidth, index, numberOfShapesAndOverlays),
+          ...stuffThatIsTheSameForEach
+      }
+  })
+
+  const maxRandomNumberForInitDeformEx: WatercolorGeneratorProps = {
+      svgHeight: svgHeight,
+      svgWidth: svgWidth,
+      watercolorShapes: shapesArray,
+      backgroundColor: 'white' 
+  }
+  
+  return (
+    <WatercolorGenerator 
+      {...maxRandomNumberForInitDeformEx}
+    />
+  )
+}
+```
+**maxRandomNumberForOverlayDeform** determins how far overlay generated points can vary from the initial points using the same guassian curve ideas.
+### MaxRandomNumberForInitDeformEx.tsx ###
+```typescript
+import {GenerateWaterDropDataParams, WatercolorGenerator, WatercolorGeneratorProps, calcEvenlySpacedNumbers} from 'react-watercolor'
+
+export default const MaxRandomNumberForInitDeformEx: React.FC = () => {
+  const svgHeight: number = 500
+  const svgWidth: number = 1000
+  const numberOfShapesAndOverlays: number = 5
+
+  const stuffThatIsTheSameForEach = {
+      initPolygonPoints: 2,
+      initPolygonRadius: svgHeight * .5,
+      originY: svgHeight * .5,
+      colors: ['#025464'],
+      opacity: 1,              
+      maxRandomNumberForInitDeform: 40,
+      maxNumberOfRecurrsionsForInitDeform: 1,
+      maxNumberOfRecurrsionsForOverlayDeform: 1,
+      numberOfOverlays: 1,
+      numberOfInitialShapeLayers: 1,
+      initRotationAngle: 90
+  }
+
+  const shapesArray: GenerateWaterDropDataParams[] = new Array(numberOfShapesAndOverlays).fill(undefined).map((item: any, index: number) => {
+      return {
+          maxRandomNumberForOverlayDeform: 25 + (index * 25),
+          originX: calcEvenlySpacedNumbers(svgWidth, index, numberOfShapesAndOverlays),
+          ...stuffThatIsTheSameForEach
+      }
+  })
+
+  const maxRandomNumberForOverlayDeformEx: WatercolorGeneratorProps = {
+      svgHeight: svgHeight,
+      svgWidth: svgWidth,
+      watercolorShapes: shapesArray,
+      backgroundColor: 'white' 
+  }
+  
+  return (
+    <WatercolorGenerator 
+      {...maxRandomNumberForOverlayDeformEx}
+    />
+  )
+}
+```
+**maxNumberOfRecurrsionsForInitDeform** controls how many times the initial point array will be iterated on, each time, adding a new midpoint between midpoints.
+### MaxNumberOfRecurrsionsForInitDeformEx.tsx ###
+```typescript
+import {GenerateWaterDropDataParams, WatercolorGenerator, WatercolorGeneratorProps, calcEvenlySpacedNumbers} from 'react-watercolor'
+
+export default const MaxRandomNumberForInitDeformEx: React.FC = () => {
+  const svgHeight: number = 500
+  const svgWidth: number = 1000
+  const numberOfShapesAndOverlays: number = 5
+
+  const stuffThatIsTheSameForEach = {
+      initPolygonPoints: 2,
+      initPolygonRadius: svgHeight * .5,
+      originY: svgHeight * .5,
+      colors: ['#025464'],
+      opacity: 1,              
+      maxRandomNumberForInitDeform: 40,
+      maxRandomNumberForOverlayDeform: 1,
+      maxNumberOfRecurrsionsForOverlayDeform: 2,
+      numberOfOverlays: 1,
+      numberOfInitialShapeLayers: 1,
+      initRotationAngle: 90
+  }
+
+  const shapesArray: GenerateWaterDropDataParams[] = new Array(numberOfShapesAndOverlays).fill(undefined).map((item: any, index: number) => {
+      return {
+          maxNumberOfRecurrsionsForInitDeform: (1 + index),
+          originX: calcEvenlySpacedNumbers(svgWidth, index, numberOfShapesAndOverlays),
+          ...stuffThatIsTheSameForEach
+      }
+  })
+
+  const maxNumberOfRecurrsionsForInitDeformEx: WatercolorGeneratorProps = {
+      svgHeight: svgHeight,
+      svgWidth: svgWidth,
+      watercolorShapes: shapesArray,
+      backgroundColor: 'white' 
+  }
+  
+  return (
+    <WatercolorGenerator 
+      {...maxRandomNumberForOverlayDeformEx}
+    />
+  )
+}
+```
+**maxNumberOfRecurrsionsForOverlayDeform** further deforms the initial deformed polygon for each overlay.
+### MaxNumberOfRecurrsionsForOverlayDeformEx.tsx ###
+```typescript
+import {GenerateWaterDropDataParams, WatercolorGenerator, WatercolorGeneratorProps, calcEvenlySpacedNumbers} from 'react-watercolor'
+
+export default const MaxNumberOfRecurrsionsForOverlayDeformEx: React.FC = () => {
+  const svgHeight: number = 500
+  const svgWidth: number = 1000
+  const numberOfShapesAndOverlays: number = 5
+
+  const stuffThatIsTheSameForEach = {
+      initPolygonPoints: 2,
+      initPolygonRadius: svgHeight * .5,
+      originY: svgHeight * .5,
+      colors: ['#025464'],
+      opacity: 1,              
+      maxRandomNumberForInitDeform: 40,
+      maxNumberOfRecurrsionsForInitDeform: 2,
+      maxRandomNumberForOverlayDeform: 1,
+      numberOfOverlays: 1,
+      numberOfInitialShapeLayers: 1,
+      initRotationAngle: 90
+  }
+
+  const shapesArray: GenerateWaterDropDataParams[] = new Array(numberOfShapesAndOverlays).fill(undefined).map((item: any, index: number) => {
+      return {
+          maxNumberOfRecurrsionsForOverlayDeform: index + 1,
+          originX: calcEvenlySpacedNumbers(svgWidth, index, numberOfShapesAndOverlays),
+          ...stuffThatIsTheSameForEach
+      }
+  })
+
+  const maxNumberOfRecurrsionsForOverlayDeformEx: WatercolorGeneratorProps = {
+      svgHeight: svgHeight,
+      svgWidth: svgWidth,
+      watercolorShapes: shapesArray,
+      backgroundColor: 'white' 
+  }
+  
+  return (
+    <WatercolorGenerator 
+      {...maxRandomNumberForOverlayDeformEx}
+    />
+  )
+}
+```
+**maxNumberOfRecurrsionsForOverlayDeform** and **maxNumberOfRecurrsionsForInitDeform** exponentially magnify each other like this...
+```typescript
+numberOfPointsInEachOverlayAfterDeform = initPolygonPoints * (2 ^ maxNumberOfRecurrsionsForInitDeform + maxNumberOfRecurrsionsForOverlayDeform)
+```
+### MaxNumberOfRecursionsForInitAndOverlaysEx.tsx ###
+```typescript
+import {GenerateWaterDropDataParams, WatercolorGenerator, WatercolorGeneratorProps, calcEvenlySpacedNumbers} from 'react-watercolor'
+
+export default const MaxNumberOfRecursionsForInitAndOverlaysEx: React.FC = () => {
+  const svgHeight: number = 500
+  const svgWidth: number = 1000
+  const numberOfShapesAndOverlays: number = 5
+
+  const stuffThatIsTheSameForEach = {
+      initPolygonPoints: 2,
+      initPolygonRadius: svgHeight * .5,
+      originY: svgHeight * .5,
+      colors: ['#025464'],
+      opacity: 1,              
+      maxRandomNumberForInitDeform: 40,
+      maxNumberOfRecurrsionsForInitDeform: 2,
+      maxRandomNumberForOverlayDeform: 1,
+      numberOfOverlays: 1,
+      numberOfInitialShapeLayers: 1,
+      initRotationAngle: 90
+  }
+
+  const shapesArray: GenerateWaterDropDataParams[] = new Array(numberOfShapesAndOverlays).fill(undefined).map((item: any, index: number) => {
+      return {
+          maxNumberOfRecurrsionsForOverlayDeform: index + 1,
+          originX: calcEvenlySpacedNumbers(svgWidth, index, numberOfShapesAndOverlays),
+          ...stuffThatIsTheSameForEach
+      }
+  })
+
+  const maxNumberOfRecurrsionsForOverlayDeformEx: WatercolorGeneratorProps = {
+      svgHeight: svgHeight,
+      svgWidth: svgWidth,
+      watercolorShapes: shapesArray,
+      backgroundColor: 'white' 
+  }
+  
+  return (
+    <WatercolorGenerator 
+      {...maxRandomNumberForOverlayDeformEx}
+    />
+  )
+}
+
+```
 ## The Maths! ##
 ```typescript
 numberOfPolygonsGenerated = numberOfInitialShapeLayers * numberOfOverlays
 
-numberOfPointsInEachOverlayAfterDeform = 2 ^ (maxNumberOfRecurrsionsForInitDeform + maxNumberOfRecurrsionsForOverlayDeform + 1)
-
+numberOfPointsInEachOverlayAfterDeform = initPolygonPoints * (2 ^ maxNumberOfRecurrsionsForInitDeform + maxNumberOfRecurrsionsForOverlayDeform)
 ```
 
 <!-- todo - gradient background? -->

@@ -27,3 +27,4 @@ __exportStar(require("./maxRandomNumberForInitDeformEx"), exports);
 __exportStar(require("./maxNumberOfRecurrsionsForInitDeformEx"), exports);
 __exportStar(require("./maxRandomNumberForOverlayDeformEx"), exports);
 __exportStar(require("./maxNumberOfRecurrsionsForOverlayDeformEx"), exports);
+__exportStar(require("./maxNumberOfRecursionsForInitAndOverlaysEx"), exports);

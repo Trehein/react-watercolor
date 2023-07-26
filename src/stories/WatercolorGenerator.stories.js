@@ -12,7 +12,8 @@ import {
     maxRandomNumberForInitDeformEx,
     maxNumberOfRecurrsionsForInitDeformEx,
     maxRandomNumberForOverlayDeformEx,
-    maxNumberOfRecurrsionsForOverlayDeformEx
+    maxNumberOfRecurrsionsForOverlayDeformEx,
+    maxNumberOfRecursionsForInitAndOverlaysEx
  } from '../examples'
 
 export default {
@@ -150,7 +151,15 @@ export const MaxNumberOfRecurrsionsForOverlayDeform = {
     parameters: {  /* ... */ },
 }
 
-
+export const MaxNumberOfRecursionsForInitAndOverlays = {
+    render: (args) => <WatercolorGenerator
+        {...args}
+    />,
+    args: {
+        ...maxNumberOfRecursionsForInitAndOverlaysEx
+    },
+    parameters: {  /* ... */ },
+}
 
 
 
