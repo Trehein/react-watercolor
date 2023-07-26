@@ -8,6 +8,12 @@ Or the [repo](https://github.com/Trehein/react-watercolor) and spin it up with s
 npm i
 npm run storybook
 ```
+## The Maths! ##
+```typescript
+numberOfPolygonsGenerated = numberOfInitialShapeLayers * numberOfOverlays
+
+numberOfPointsInEachOverlayAfterDeform = initPolygonPoints * (2 ^ maxNumberOfRecurrsionsForInitDeform + maxNumberOfRecurrsionsForOverlayDeform)
+```
 ![lineEx](https://github.com/Trehein/react-watercolor/assets/18636420/51e52672-c4b6-431b-a71b-4ba981bae87a)
 ### BlackLine.tsx ###
 ```typescript
@@ -345,6 +351,7 @@ export default const Everything = () => {
 ```
 ## Recipes ##
 The **numberOfInitialShapes** determines how many base polygons will be rendered. Each one of these will have layers that are then be iterated on and further deformed with more randomized path points and more slightly deformed layers. 
+![numberOfInitialShapes](https://github.com/Trehein/react-watercolor/assets/18636420/467bf6e2-45b8-4542-8247-29061124bb03)
 ### NumberOfInitialShapes.tsx ###
 ```typescript
 import {GenerateWaterDropDataParams, WatercolorGenerator, WatercolorGeneratorProps} from 'react-watercolor'
@@ -395,8 +402,8 @@ const numberOfOverlaysEx: WatercolorGeneratorProps = {
   )
 }
 ```
-
 The **numberOfOverlays** makes a deformed copy of the initial shape. Each one of these will have layers that are then be iterated on and further deformed with more randomized path points and more slightly deformed layers. 
+![numberOfOverlays](https://github.com/Trehein/react-watercolor/assets/18636420/525c7301-5642-4b6c-9696-dae1ea836ec8)
 ### NumberOfOverlays.tsx ###
 ```typescript
 import {GenerateWaterDropDataParams, WatercolorGenerator, WatercolorGeneratorProps} from 'react-watercolor'
@@ -451,6 +458,7 @@ The total number of polygons that make up a shape is calculated like this...
 ```typescript
 numberOfPolygonsGenerated = numberOfInitialShapeLayers * numberOfOverlays
 ```
+![numberOfInitialShapesAndOverlays](https://github.com/Trehein/react-watercolor/assets/18636420/263048ae-b08d-429d-9716-8c95d1eec471)
 ### NumberOfInitialShapesAndOverlaysEx.tsx ###
 ```typescript
 import {GenerateWaterDropDataParams, WatercolorGenerator, WatercolorGeneratorProps, calcEvenlySpacedNumbers} from 'react-watercolor'
@@ -496,7 +504,8 @@ export default const NumberOfInitialShapesAndOverlaysEx: React.FC = () => {
   )
 }
 ```
-**maxRandomNumberForInitDeform** controls how far midpoints that are generated can be + or - this value based on a guassian curve for the intial deforming of the shapes. These points will be further split by the overlay deformation.    
+**maxRandomNumberForInitDeform** controls how far midpoints that are generated can be + or - this value based on a guassian curve for the intial deforming of the shapes. These points will be further split by the overlay deformation.
+![maxRandomNumberForInitDeform](https://github.com/Trehein/react-watercolor/assets/18636420/bc79ca8c-b2df-4a7c-a78d-8573b89c3f10)
 ### MaxRandomNumberForInitDeformEx.tsx ###
 ```typescript
 import {GenerateWaterDropDataParams, WatercolorGenerator, WatercolorGeneratorProps, calcEvenlySpacedNumbers} from 'react-watercolor'
@@ -728,13 +737,6 @@ export default const MaxNumberOfRecursionsForInitAndOverlaysEx: React.FC = () =>
     />
   )
 }
-
-```
-## The Maths! ##
-```typescript
-numberOfPolygonsGenerated = numberOfInitialShapeLayers * numberOfOverlays
-
-numberOfPointsInEachOverlayAfterDeform = initPolygonPoints * (2 ^ maxNumberOfRecurrsionsForInitDeform + maxNumberOfRecurrsionsForOverlayDeform)
 ```
 
 <!-- todo - gradient background? -->
